@@ -1,0 +1,81 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ironclad"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime" x:Class="Ironclad.MainWindow"
+        mc:Ignorable="d"
+        Title="Ironclad" Height="500" Width="900" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="1" x:Name="lblVersion" Content="Version v.v" FontSize="22" FontFamily="Century Schoolbook" HorizontalAlignment="Right"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Grid.Column="0" x:Name="btnLaunch" Content="Launch Game" Click="btnLaunch_Click" FontWeight="Bold"/>
+                <Button Grid.Row="1" Grid.Column="0" x:Name="btnRegenerate" Content="Regenerate Game" Click="btnRegenerate_Click"/>
+                <Button Grid.Row="2" Grid.Column="0" x:Name="btnFeatures" Content="Features" Click="btnFeaturesClick"/>
+                <Label Grid.Row="2" Grid.Column="1" x:Name="lblFeatures" Content="{Binding FeaturesCount, Mode=OneWay}" HorizontalAlignment="Center"/>
+                <Label Grid.Row="2" Grid.Column="2" x:Name="lblMonitors" Content="{Binding MonitorCount, Mode=OneWay}" HorizontalAlignment="Center"/>
+                <Label Grid.Row="2" Grid.Column="3" x:Name="lblScriptSize"  Content="{Binding ScriptSize, Mode=OneWay}" HorizontalAlignment="Center"/>
+                <Label Grid.Row="2" Grid.Column="4" x:Name="lblEOTWait" Content="{Binding EOTWait, Mode=OneWay}" HorizontalAlignment="Center"/>
+                <Button Grid.Row="3" Grid.Column="0" x:Name="btnCheckAndValidate" Content="Validate Game" Click="btnCheckAndValidate_Click"/>
+                <Button Grid.Row="4" Grid.Column="0" x:Name="btnShowStats" Content="Show Statistics" Click="btnShowStats_Click"/>
+                <Button Grid.Row="5" Grid.Column="0" x:Name="btnChangeSetGamePath" Content="Set/Change Gamepath" Click="btnChangeSetGamePath_Click"/>
+                <Label Grid.Row="0" Grid.Column="1" Content="Resolution:" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <ComboBox Grid.Row="0" Grid.Column="2" x:Name="ddResolution" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <System:String>1024x768</System:String>
+                    <System:String>1280x960</System:String>
+                    <System:String>1440x1080</System:String>
+                    <System:String>1920x1080</System:String>
+                    <System:String>1920x1200</System:String>
+                    <System:String>2560x1080</System:String>
+                    <System:String>2560x1440</System:String>
+                    <System:String>3440x1440</System:String>
+                </ComboBox>
+                <CheckBox Grid.Row="0" Grid.Column="3" x:Name="cbLogAll" Content="Log All" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="0" Grid.Column="4" x:Name="cbWindowed" Content="Windowed" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="0" Grid.Column="5" x:Name="cbMuted" Content="Muted" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="1" Grid.Column="1" x:Name="cbLaunch" Content="Launch" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="3" Grid.Column="1" x:Name="cbValidateUnitModels" Content="Models" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="3" Grid.Column="2" x:Name="cbValidateOtherFiles" Content="Other" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="4" Grid.Column="1" x:Name="cbShowStatsFactions" Content="Factions" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="4" Grid.Column="2" x:Name="cbShowStatsRegions" Content="Regions" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="4" Grid.Column="3" x:Name="cbShowStatsResources" Content="Resources" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="4" Grid.Column="4" x:Name="cbShowStatsScripts" Content="Scripts" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="4" Grid.Column="5" x:Name="cbShowStatsNamesets" Content="NameSets" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <CheckBox Grid.Row="5" Grid.Column="1" x:Name="cbRoadTest" Content="Road Test" VerticalAlignment="Center" HorizontalAlignment="Center" ToolTip="All regions have roads from the start for pathfinding tests"/>
+            </Grid>
+        </Grid>
+        <TextBox Grid.Row="1" Grid.Column="0"  x:Name="tbIroncladLog" Text="{Binding LogText, Mode=OneWay}" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" IsReadOnly="True" TextChanged="IroncladLogTextChanged" FontSize="12" />
+    </Grid>
+</Window>
